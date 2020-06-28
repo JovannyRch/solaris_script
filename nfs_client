@@ -1,0 +1,9 @@
+rm -rf /$2
+mkdir /$2
+mount -F nfs -o rw 192.168.1.40:/rpool/$1 /$2/
+echo "$3" > /$2/nsf_cliente_$2.txt
+echo "Contenido de la remota"
+ls /$2
+echo "Archivo del servidor"
+cat /$2/archivo_nfs.txt
+echo "cd /$2"

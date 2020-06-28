@@ -1,0 +1,9 @@
+zfs create rpool/$1
+echo "File System creado $1"
+zfs list | grep $1
+zfs set sharenfs=on rpool/$1
+showmount -e | grep $1
+chmod -R 755 /rpool/$1
+cd /rpool/$1
+echo "$2" > archivo_nfs.txt 
+echo "cd /rpool/$1"
